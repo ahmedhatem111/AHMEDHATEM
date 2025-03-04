@@ -1,0 +1,1808 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>A H M E D H A T E M</title>
+    <link rel="icon" type="image/x-icon" href="https://e.top4top.io/p_3346wqyvi1.png">
+    <script src="ahmed1.js"></script>
+    <link rel="stylesheet" href="styles1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Arial', sans-serif;
+            transition: all 0.3s ease-in-out;
+        }
+
+        body {
+            direction: rtl;
+            text-align: right;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        #loading {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: black;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 9999;
+        }
+
+        #loading img {
+            width: auto;
+            height: auto;
+            margin-bottom: 20px;
+            animation: bounce 1.5s infinite;
+            filter: drop-shadow(0 0 60px rgba(255, 223, 0, 0.8));
+        }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        #loading-text {
+            font-size: 18px;
+            color: white;
+            animation: fadeIn 2s ease-in-out infinite alternate;
+        }
+
+        @keyframes fadeIn {
+            0% { opacity: 0; transform: translateY(10px); }
+            100% { opacity: 1; transform: translateY(0); }
+        }
+
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: linear-gradient(90deg, black,);
+            color: white;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 15px 30px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            z-index: 1000;
+            transition: background 0.3s ease, padding 0.3s ease;
+        }
+
+        header.scrolled {
+            background: #222;
+            padding: 10px 20px;
+        }
+
+        .logo {
+            order: 2;
+            margin-right: 10px;
+        }
+
+        .logo img {
+            max-width: 150px;
+            max-height: 150px;
+            height: auto;
+            width: auto;
+            transition: transform 0.3s ease;
+        }
+
+        .logo img:hover {
+            transform: scale(1.1);
+        }
+
+        .nav-container {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            order: 1;
+        }
+
+        nav {
+            display: flex;
+            gap: 15px;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: white;
+            font-weight: bold;
+            padding: 8px 15px;
+            border-radius: 5px;
+            background-color: rgba(255, 255, 255, 0.1);
+            transition: background-color 0.3s ease, transform 0.3s ease;
+        }
+
+        nav a:hover {
+            background-color: #FFD700;
+            color: black;
+            transform: translateY(-3px);
+        }
+
+        .menu-icon {
+            display: none;
+            font-size: 24px;
+            cursor: pointer;
+        }
+
+        .menu-icon:hover {
+            transform: scale(1.2);
+        }
+
+        .hero-section {
+            margin-top: 80px;
+            padding: 100px 20px;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            color: white;
+            text-align: center;
+        }
+
+        .profile-circle {
+            width: 150px;
+            height: 150px;
+            border-radius: 50%;
+            border: 5px solid #FFD700;
+            overflow: hidden;
+            margin: 0 auto 20px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .profile-circle img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .profile-info {
+            text-align: center;
+        }
+
+        .profile-info h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            animation: fadeIn 1.5s ease-in-out;
+        }
+
+        .profile-info p {
+            font-size: 1.2rem;
+            color: #fff;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .ripple {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, 0.7);
+            transform: scale(0);
+            animation: ripple-animation 0.6s linear;
+            pointer-events: none;
+        }
+
+        @keyframes ripple-animation {
+            to { transform: scale(4); opacity: 0; }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .container {
+            width: 80%;
+            margin: 120px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            border-bottom: 3px solid #FFD700;
+            padding-bottom: 5px;
+            display: inline-block;
+        }
+
+        p, li {
+            color: #555;
+        }
+
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.8s ease-out, transform 0.8s ease-out;
+        }
+
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        body.dark-mode h2 {
+            color: #FFD700;
+        }
+
+        body.dark-mode p, body.dark-mode li {
+            color: #ddd;
+        }
+
+        @media (max-width: 768px) {
+            .menu-icon {
+                display: block;
+            }
+
+            nav {
+                display: none;
+                flex-direction: column;
+                position: absolute;
+                top: 60px;
+                right: 0;
+                background: #222;
+                width: 200px;
+                padding: 15px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            }
+
+            nav.open {
+                display: flex;
+            }
+
+            .nav-container {
+                flex-direction: column;
+                align-items: flex-end;
+            }
+
+            .logo {
+                margin-right: 0;
+            }
+
+            .hero-section h1 {
+                font-size: 2rem;
+            }
+
+            .hero-section p {
+                font-size: 1rem;
+            }
+
+            .profile-circle {
+                width: 120px;
+                height: 120px;
+            }
+
+            .profile-info h1 {
+                font-size: 2rem;
+            }
+
+            .profile-info p {
+                font-size: 1rem;
+            }
+        }
+
+        @keyframes waveAnimation {
+            0% { transform: translateX(0); }
+            100% { transform: translateX(50px); }
+        }
+
+        .social-icons {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 3px;
+        }
+
+        .social-icons a {
+            font-size: 28px;
+            width: 65px;
+            height: 65px;
+            top: 35px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: black;
+            background: rgba(71, 41, 41, 0.1);
+            backdrop-filter: blur(10px);
+            border-radius: 50%;
+            transition: all 0.3s ease-in-out;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.1);
+        }
+
+        .social-icons a:hover {
+            transform: translateY(-5px) scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 215, 0, 0.7);
+        }
+
+        .social-icons a::before {
+            content: "";
+            position: absolute;
+            width: 150%;
+            height: 150%;
+            background: radial-gradient(circle, rgba(255, 215, 0, 0.5), transparent);
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%) scale(0);
+            transition: transform 0.3s ease-in-out;
+        }
+
+        .social-icons a:hover::before {
+            transform: translate(-50%, -50%) scale(1.5);
+        }
+
+        .facebook:hover { color: #1877F2; }
+        .twitter:hover { color: #1DA1F2; }
+        .instagram:hover { color: #E1306C; }
+        .youtube:hover { color: #FF0000; }
+        .linkedin:hover { color: #0077B5; }
+        .whatsapp:hover { color: #25D366; }
+
+        .skills-section {
+            padding: 60px 20px;
+            background-color: #fff;
+            text-align: center;
+        }
+
+        .skills-section h2 {
+            color: black;
+        }
+
+        .skill {
+            margin-bottom: 20px;
+        }
+
+        .skill p {
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .progress-bar {
+            width: 100%;
+            height: 20px;
+            background-color: #e0e0e0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .progress {
+            height: 100%;
+            background-color: #FFD700;
+            width: 0;
+            transition: width 1s ease-in-out;
+        }
+
+        .progress-percent {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #333;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+    <div id="loading">
+        <img src="prek.png">
+        <div id="loading-text">...Loading</div>
+    </div>
+
+    <header>
+        <div class="nav-container">
+            <div class="menu-icon" onclick="toggleMenu()">
+                <i class="fas fa-bars"></i>
+            </div>
+            <nav id="navMenu">
+                <a href="index.html">العربيه</a>
+                <a href="Englich.html">English</a>
+            </nav>
+        </div>
+        <div class="logo">
+            <img src="Ahmed Hatem.png" alt="Logo Ahmed Hatem">
+        </div>
+    </header>
+<br>
+<br>
+<br>
+<section class="hero-section">
+    <div class="profile-circle">
+        <img src="فيس بوك.jpeg" alt="صورتي">
+    </div>
+    <div class="profile-info">
+        <h1>Ahmed Hatem</h1>
+        <p>Developer, web designer, graphic and video designer</p>
+    </div>
+    <br>
+    <br>
+    <div class="social-icons">
+        <a href="https://www.facebook.com/profile.php?id=100030429453407" target="blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100080199942408" target="blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/ahmedhatem_1_1/" target="blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.behance.net/398e68e2" target="_blank" title="Behaance"><i class="fab fa-behance"></i></a>
+        <a href="https://www.youtube.com/@Ahmed_Hatem1" target="blank" title="YouTube"><i class="fab fa-youtube"></i></a>
+        <a href="https://www.linkedin.com/in/ahmedhatem111/" target="blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://wa.me/qr/CGNWGZIIIEIMF1" target="blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+    </div>
+</section>
+
+<section class="about-section">
+    <div class="about-container">
+        <div class="about-image">
+            <img src="aaa1.jpg" alt="صورتي الثانيه">
+        </div>
+        <div class="about-text">
+            <h2>? Who am I</h2>
+            <p>
+                I am Ahmed Hatem, a programmer, website designer, and intermediate graphic designer. I have experience in designing and developing websites and applications, and I always work to provide creative and practical solutions that meet customers’ needs. I always strive to develop my skills and learn from new challenges            </p>
+            <p>
+                I believe that good design combines aesthetics and functionality, so I always focus on creating enjoyable and effective user experiences. I work using the latest techniques and tools to ensure the best results            </p>
+        </div>
+    </div>
+</section>
+
+<style>
+    .hero-section {
+        margin-bottom: -75px;
+    }
+
+    .hero-section br {
+        display: none;
+    }
+</style>
+
+<section class="services">
+    <h2 style="color: white;">My services</h2>
+    <br>
+    <br>
+    <div class="services-container">
+        <button class="service-btn">
+            <span>Website development</span>
+            <img src="https://k.top4top.io/p_3346brg5o1.png" width="130px" height="130px" alt="Website development">
+        </button>
+        <button class="service-btn">
+            <span>Graphic design</span>
+            <img src="https://b.top4top.io/p_3346r5z4b1.png" width="130px" height="130px" alt="Graphic design">
+        </button>
+        <button class="service-btn">
+            <span>Application development</span>
+            <img src="https://a.top4top.io/p_3346lpo7y1.png" width="130px" height="130px" alt="Application development">
+        </button>
+        <button class="service-btn">
+            <span>Video editing</span>
+            <img src="https://f.top4top.io/p_33464qm0i1.png" width="130px" height="130px" alt="Video editing">
+        </button>
+    </div>
+</section>
+<br>
+<br>
+<br>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>روابطي المهمة</title>
+    <link href="https://fonts.googleapis.com/css2?family=Tajawal:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        /* ✅ أنماط خاصة بالصندوق فقط */
+        #custom-links-box {
+            width: 95%; /* ✅ ضبط العرض */
+            max-width: 1050px; /* ✅ تقليل الحجم الأقصى قليلاً */
+            margin: 30px auto;
+            background: rgba(255, 255, 255, 0.1);
+            backdrop-filter: blur(10px);
+            padding: 20px;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            font-family: 'Tajawal', sans-serif;
+            color: #fff;
+            box-sizing: border-box; /* ✅ حل مشكلة تجاوز الحواف */
+            overflow: hidden; /* ✅ تجنب ظهور أجزاء مقطوعة */
+        }
+
+        #custom-links-box .title {
+            font-size: 24px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            position: relative;
+        }
+
+        #custom-links-box .title::after {
+            content: '';
+            width: 80px;
+            height: 4px;
+            background: linear-gradient(90deg, #ff6f61, #ffcc00);
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 2px;
+        }
+
+        /* ✅ جعل الأيقونات داخل الصندوق دون خروج */
+        #custom-links-box .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+
+        #custom-links-box .image-item {
+            background: rgba(255, 255, 255, 0.1);
+            padding: 15px;
+            border-radius: 12px;
+            transition: transform 0.3s ease, background 0.3s;
+            width: 120px;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        #custom-links-box .image-item:hover {
+            transform: scale(1.1);
+            background: rgba(255, 255, 255, 0.2);
+        }
+
+        #custom-links-box .image-item img {
+            width: 90px;
+            height: 90px;
+            border-radius: 50%;
+            transition: transform 0.3s ease;
+        }
+
+        #custom-links-box .image-item:hover img {
+            transform: rotate(5deg);
+        }
+
+        #custom-links-box .image-item p {
+            margin-top: 10px;
+            font-size: 18px; /* ✅ زيادة حجم الخط */
+            font-weight: 600; /* ✅ زيادة سماكة الخط */
+            color: #fff; /* ✅ لون أبيض */
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.3); /* ✅ إضافة ظل للنص */
+        }
+
+        #custom-links-box hr {
+            width: 80%;
+            border: none;
+            height: 2px;
+            background: rgba(255, 255, 255, 0.3);
+            margin: 25px auto;
+        }
+
+        /* 🌍 تحسين التوافق مع الهواتف */
+        @media (max-width: 768px) {
+            #custom-links-box {
+                width: 90%;
+                padding: 15px;
+            }
+
+            #custom-links-box .image-container {
+                flex-direction: row;
+                justify-content: center;
+                gap: 10px;
+            }
+
+            #custom-links-box .image-item {
+                width: 110px;
+            }
+
+            #custom-links-box .image-item img {
+                width: 80px;
+                height: 80px;
+            }
+
+            #custom-links-box .image-item p {
+                font-size: 16px; /* ✅ تعديل حجم الخط للأجهزة الصغيرة */
+            }
+        }
+
+        @media (max-width: 480px) {
+            #custom-links-box {
+                width: 92%;
+                padding: 10px;
+            }
+
+            #custom-links-box .image-container {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            #custom-links-box .image-item {
+                width: 100px;
+            }
+
+            #custom-links-box .image-item img {
+                width: 70px;
+                height: 70px;
+            }
+
+            #custom-links-box .image-item p {
+                font-size: 14px; /* ✅ تعديل حجم الخط للأجهزة الأصغر */
+            }
+        }
+    </style>
+</head>
+<body>
+
+  <!-- ✅ صندوق مغلق ومتجاوب -->
+  <div id="custom-links-box">
+    <div class="title">Freelancer sites that I work on</div>
+    <div class="image-container">
+      <div class="image-item">
+        <a href="https://khamsat.com/user/ahmed_hatem11" target="blank">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSVZ_sHU6IVHVnGnfbgKCgqnquhUbGBIlkdTg&s" alt="Fives">
+          <p>Fives</p>
+        </a>
+      </div>
+      <div class="image-item">
+        <a href="https://kafiil.com/u/Ahmed_Hatem1111" target="blank">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRykRpIt91re9TomGU_lNCKQWpdN6b7caIeJQ&s" alt="sponsor">
+          <p>sponsor</p>
+        </a>
+      </div>
+      <div class="image-item">
+        <a href="https://mostaql.com/u/Ahmed_Hatem1111" target="blank">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSySMRLIBczlsRmXAhJk8dA3NqRHDv27MpC-Q&s" alt="independent">
+          <p>...indep</p>
+        </a>
+      </div>
+      <div class="image-item">
+        <a href="https://www.upwork.com/freelancers/~01a003c66db3593628" target="blank">
+          <img src="https://static-00.iconduck.com/assets.00/upwork-icon-2048x2048-rrxq98us.png" alt="hip father">
+          <p>hip father</p>
+        </a>
+      </div>
+    </div>
+
+    <hr> <!-- ✅ الخط الفاصل -->
+
+    <div class="title">Other links that may interest you</div>
+    <div class="image-container">
+      <div class="image-item">
+        <a href="https://sarhne.sarahah.pro/ahmeehatem111" target="blank">
+          <img src="https://play-lh.googleusercontent.com/mRP54dZmf0WziitoJ-gDtd7UhGAOPDH4C4UqdJdk0rQWh5lLZvRGqsItbNkVWG2KNRqX" alt="Be honest with me">
+          <p>Be honest with me</p>
+        </a>
+      </div>
+      <div class="image-item">
+        <a href="https://codeforces.com/profile/Ahmed_Hatem1"target="blank">
+          <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT79nwBjv1DZCM52v5A8tGWeklc6FxaWR2Tgw&s" alt="Code Force">
+          <p>Code Force</p>
+        </a>
+      </div>
+    </div>
+  </div>
+
+</body>
+</html>
+
+
+
+
+<br>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+    }
+
+    .companies-section {
+      margin-top: 10px;
+      padding-top: 10px;
+    }
+
+    .companies-container {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+      justify-content: center;
+    }
+
+    .company-item {
+      text-align: center;
+      width: 200px;
+    }
+
+    .profile-container {
+      position: relative;
+    }
+
+    .cover img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+    }
+
+    .profile-image img {
+      width: 130px;
+      height: 130px;
+      top: 0px;
+      border-radius: 50%;
+      position: absolute;
+      bottom: -40px;
+      left: 50%;
+      transform: translateX(-50%);
+      border: 3px solid #fff;
+    }
+
+    .company-item p {
+      margin-top: -13px; /* تم تقليل المسافة هنا */
+      font-size: 24px;
+      color: #333;
+    }
+  </style>
+</head>
+<body>
+
+  <section class="companies-section">
+    <h2>Companies and organizations you have worked with</h2>
+    <div class="companies-container">
+      <div class="company-item">
+        <div class="profile-container">
+          <div class="cover">
+            <img src="غلاف هابي رول.jpeg" alt="Happy roll">
+          </div>
+          <div class="profile-image">
+            <img src="شعار هابي رول.jpg" alt="Happy roll">
+          </div>
+        </div>
+        <p>Happy roll</p>
+      </div>
+      <div class="company-item">
+        <div class="profile-container">
+          <div class="cover">
+            <img src="غلاف لاتينو.jpeg" alt="latino">
+          </div>
+          <div class="profile-image">
+            <img src="شعار لاتينو.jpeg" alt="latino">
+          </div>
+        </div>
+        <p>latino</p>
+      </div>
+      <div class="company-item">
+        <div class="profile-container">
+          <div class="cover">
+            <img src="غلاف اخبار محافظه قنا.jpeg" alt="Qena Governorate News">
+          </div>
+          <div class="profile-image">
+            <img src="شعار اخبار محافظه قنا.jpeg" alt="Qena Governorate News">
+          </div>
+        </div>
+        <p>Qena Governorate News</p>
+      </div>
+      <div class="company-item">
+        <div class="profile-container">
+          <div class="cover">
+            <img src="غلاف فلسطين كولا.jpeg" alt="Palestine Cola Company">
+          </div>
+          <div class="profile-image">
+            <img src="شعار فلسطين كولا.jpeg" alt="Palestine Cola Company">
+          </div>
+        </div>
+        <p>Palestine Cola Company</p>
+      </div>
+      <div class="company-item">
+        <div class="profile-container">
+          <div class="cover">
+            <img src="غلاف اسره طلاب من اجل مصر.jpeg" alt="Family of Students for Egypt - Computers and Artificial Intelligence, Qena National University">
+          </div>
+          <div class="profile-image">
+            <img src="شعار طلاب من اجل مصر.jpeg" alt="Family of Students for Egypt - Computers and Artificial Intelligence, Qena National University">
+          </div>
+        </div>
+        <p>Family of Students for Egypt - Computers and Artificial Intelligence, Qena National University</p>
+      </div>
+
+
+      <div class="company-item">
+        <div class="profile-container">
+          <div class="cover">
+            <img src="https://scontent.fcai20-5.fna.fbcdn.net/v/t39.30808-6/474238589_122135104994467121_1320734123677196768_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=cOuyBhkVLqsQ7kNvgFOVZrz&_nc_oc=AdgxJFv_SoAmjypRyQH1gB7A9sfkLe8MOZwovWczvMB2Gb6eY5kyCFR0XUEkE9DbSCM&_nc_zt=23&_nc_ht=scontent.fcai20-5.fna&_nc_gid=A-QAmjxjZnBgRymGOLlhoeX&oh=00_AYDoQYaZs6_TOQ13GiRAVDnH2YKA5CS9b99zn_DQJV9YPA&oe=67CAB412" alt="Saeedi Book Store">
+          </div>
+          <div class="profile-image">
+            <img src="https://scontent.fcai20-5.fna.fbcdn.net/v/t39.30808-6/469404155_122127862442467121_2838403120180789299_n.jpg?_nc_cat=101&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=-feJObNWwvMQ7kNvgEsZm2z&_nc_oc=AdiAr3y-J9-BJlJDUhUUVLPRSP4Tl0ztg74WW4rgf1GbmDHo03U_wIjGoIaDzQmLKUE&_nc_zt=23&_nc_ht=scontent.fcai20-5.fna&_nc_gid=A9jmEHSp10d_cGHD-L6AlRg&oh=00_AYD1KcriiIlQB7ETZu1zHd7MBnl43fkuvXKCBvtdbh22HQ&oe=67CACF5E" alt="Saeedi Book Store">
+          </div>
+        </div>
+        <p>Saeedi Book Store</p>
+      </div>
+
+      <div class="company-item">
+        <div class="profile-container">
+          <div class="cover">
+            <img src="https://scontent.fcai20-1.fna.fbcdn.net/v/t39.30808-6/476639634_923803473264876_1731860721729738874_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=hEN4jjN-tb8Q7kNvgEEgBjd&_nc_oc=AdjzJMQ5tG7gUPicGrBAu8AaNEZMUM_bJZGk1vkvoO0QdMCtxJauHk0t7WH5f9P97G0&_nc_zt=23&_nc_ht=scontent.fcai20-1.fna&_nc_gid=A9IUF7oTnNStl-a_6rPg-1Y&oh=00_AYC5tU-BcIvA3uDWEGS6moYJhhH627eKnX36dIvVzr_mPQ&oe=67CAD938" alt="Dyler Skate">
+          </div>
+          <div class="profile-image">
+            <img src="https://scontent.fcai20-1.fna.fbcdn.net/v/t39.30808-6/331408606_1676948532724549_5988719404683197363_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=Mywsr2fkccMQ7kNvgGgsCAI&_nc_oc=Adhm1V27nqTXQdam_AJnWlB6I_wKC2Lfhm3A2zb7X_68OqLucHg7tALeYsy5dXmQfoI&_nc_zt=23&_nc_ht=scontent.fcai20-1.fna&_nc_gid=AP1e9PiQlKCtf200fWFIdLB&oh=00_AYCbT1Dz3wxyOA2MyTP1MIxnsJBgPQF09dLSmLRAMqlqWg&oe=67CAB71A" alt="Dyler Skate">
+          </div>
+        </div>
+        <p>Dyler Skate</p>
+      </div>
+
+      <div class="company-item">
+        <div class="profile-container">
+          <div class="cover">
+            <img src="https://scontent.fcai20-1.fna.fbcdn.net/v/t39.30808-6/480972913_1055299333292351_4834013139589676985_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=ruyaXHDDQv4Q7kNvgEM6VAK&_nc_oc=Adh1H9xWNIYMQl9lYx2_6_VvLlCgCz4uHKe1ep0tYM-iXrZGmrvoA70cLkbxF1HfKUA&_nc_zt=23&_nc_ht=scontent.fcai20-1.fna&_nc_gid=AGuJ2J-cYA2SR9sxOKZzKaY&oh=00_AYAzAGoMhmNFjsvzTahTTApeX7zPJAkDwZs4TqBCZxeu3A&oe=67CAC1C6" alt="A chain of last hour stores for wholesale trade">
+          </div>
+          <div class="profile-image">
+            <img src="https://scontent.fcai20-3.fna.fbcdn.net/v/t39.30808-6/327467462_2311079135719276_5499150926089628297_n.jpg?_nc_cat=100&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=XmNEwQOFK3wQ7kNvgHZdsEm&_nc_oc=Adj_-P-JTGSFwyqJBr9Y_Jni5Y8CoO-f-Nw-ELmgnkawX9JTOcCBuzdUAIhNLEfCPeI&_nc_zt=23&_nc_ht=scontent.fcai20-3.fna&_nc_gid=AibMhO-K_8Iuq5QWbOYHbjA&oh=00_AYDO-D0TBj50iBc64ZU8MgcS1KpSH0FMj3f8bYhMw5gRQw&oe=67CAD1B0" alt="A chain of last hour stores for wholesale trade">
+          </div>
+        </div>
+        <p>A chain of last hour stores for wholesale trade</p>
+      </div>
+
+      <div class="company-item">
+        <div class="profile-container">
+          <div class="cover">
+            <img src="https://scontent.fcai20-1.fna.fbcdn.net/v/t39.30808-6/403713945_257018620690837_7763201356618753120_n.png?_nc_cat=110&ccb=1-7&_nc_sid=cc71e4&_nc_ohc=ZFViz_HURz4Q7kNvgFItIJK&_nc_oc=AdgrlGiEk6pieUN5_tpav30RfJY1eMaywXRboI18HI09zn2LJAjEfMeBAwQWe6Amur8&_nc_zt=23&_nc_ht=scontent.fcai20-1.fna&_nc_gid=AkubwRIe51eH1Yj1Bjsr9_r&oh=00_AYCjIYYP979GozftpbTkBRwhm0Pae59AVAFQS7FuTApW6g&oe=67CAE568" alt="Bazooka Qena">
+          </div>
+          <div class="profile-image">
+            <img src="https://scontent.fcai20-5.fna.fbcdn.net/v/t39.30808-6/343921579_1696408687461590_7049794497287250297_n.jpg?_nc_cat=106&ccb=1-7&_nc_sid=6ee11a&_nc_ohc=2QRxcrRxDHIQ7kNvgG_ps6f&_nc_oc=AdiOEgPALcR13K5vVOs2DA_864DowqQBgRF3thUdc4CDnKvy5Mt2rbojXCqPk1bKKVE&_nc_zt=23&_nc_ht=scontent.fcai20-5.fna&_nc_gid=A2HDKOollvK18OtP9tjJj5j&oh=00_AYB-Ea2bxdIkNj-XhSN7vsw2q9x9V7mThn9hbQVM823_qQ&oe=67CAEE37" alt="Bazooka Qena">
+          </div>
+        </div>
+        <p>Bazooka Qena</p>
+      </div>
+
+
+    </div>
+  </section>
+
+</body>
+</html>
+
+<style>
+    .services {
+        margin-bottom: -75px;
+    }
+</style>
+
+
+
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>مهاراتي</title>
+    <style>
+        /* تنسيق عام لأشرطة التقدم */
+        .progress-bar {
+            width: 100%;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            overflow: hidden;
+            position: relative;
+            height: 20px;
+        }
+
+        /* تنسيق الجزء الملون من شريط التقدم */
+        .progress {
+            height: 100%;
+            background-color: #ffcc00; /* اللون الأصفر */
+            border-radius: 10px;
+            width: 0; /* سيتم تعديله عبر JavaScript */
+            transition: width 0.5s ease-in-out;
+        }
+
+        /* تنسيق النسبة المئوية */
+        .progress-percent {
+            position: absolute;
+            right: 10px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: #000;
+            font-size: 14px;
+        }
+
+        /* تنسيق عام للأيقونات */
+        .skill-icon {
+            vertical-align: middle;
+            margin-right: 20px;
+            width: 30px;
+            height: 30px;
+        }
+
+        /* تنسيق النص */
+        .skill p {
+            margin: 10px 0;
+            font-size: 16px;
+            color: #333;
+        }
+    </style>
+</head>
+<body>
+    <section class="skills-section">
+        <h2>My skills</h2>
+        <br>
+        <br>
+        <div class="skill">
+            <p>
+                <img src="https://cdn-icons-png.flaticon.com/512/1532/1532556.png" class="skill-icon"> HTML
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="html-progress" data-progress="40"></div>
+                <span class="progress-percent">40%</span>
+            </div>
+        </div>
+        <div class="skill">
+            <p>
+                <img src="https://cdn-icons-png.flaticon.com/512/732/732190.png" class="skill-icon"> CSS
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="css-progress" data-progress="35"></div>
+                <span class="progress-percent">35%</span>
+            </div>
+        </div>
+        <div class="skill">
+            <p>
+                <img src="https://static.vecteezy.com/system/resources/previews/027/127/463/non_2x/javascript-logo-javascript-icon-transparent-free-png.png" class="skill-icon"> JavaScript
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="js-progress" data-progress="10"></div>
+                <span class="progress-percent">10%</span>
+            </div>
+        </div>
+        <div class="skill">
+            <p>
+                <img src="https://cdn-icons-png.flaticon.com/512/6132/6132222.png" class="skill-icon"> ++c
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="js-progress" data-progress="10"></div>
+                <span class="progress-percent">10%</span>
+            </div>
+        </div>
+        <hr style="margin: 20px 0; border: 1px solid #ddd;">
+        <div class="skill">
+            <p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQgSZme-AafIMCYHRhPFBy1U4atdR2wHMiLyA&s" class="skill-icon"> Android Studio
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="android-progress" data-progress="25"></div>
+                <span class="progress-percent">25%</span>
+            </div>
+        </div>
+        <hr style="margin: 20px 0; border: 1px solid #ddd;">
+        <div class="skill">
+            <p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR9W6KEFA_KH6kToWznxKbox3XJfW8pMgrYHg&s" class="skill-icon"> Blender 3D
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="blender-progress" data-progress="40"></div>
+                <span class="progress-percent">40%</span>
+            </div>
+        </div>
+        <div class="skill">
+            <p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSSA6yLl_iNDTZwEYG3EDU3OdlPtrgG8Ft-ug&s" class="skill-icon"> Photoshop
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="photoshop-progress" data-progress="85"></div>
+                <span class="progress-percent">85%</span>
+            </div>
+        </div>
+        <div class="skill">
+            <p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/4/40/Adobe_Premiere_Pro_CC_icon.svg/2101px-Adobe_Premiere_Pro_CC_icon.svg.png" class="skill-icon"> Adobe Premiere
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="premiere-progress" data-progress="75"></div>
+                <span class="progress-percent">75%</span>
+            </div>
+        </div>
+        <div class="skill">
+            <p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/cb/Adobe_After_Effects_CC_icon.svg/2101px-Adobe_After_Effects_CC_icon.svg.png" class="skill-icon"> After Effects
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="after-effects" data-progress="20"></div>
+                <span class="progress-percent">20%</span>
+            </div>
+        </div>
+        <div class="skill">
+            <p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/0e/Adobe_Audition_CC_icon_%282020%29.svg/1200px-Adobe_Audition_CC_icon_%282020%29.svg.png" class="skill-icon"> Adobe Audition
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="adobe-audition" data-progress="20"></div>
+                <span class="progress-percent">20%</span>
+            </div>
+        </div>
+        <div class="skill">
+            <p>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcScwbj9h7YKpNndf4gySaOJVpI7YZBN-aT5Tg&s" class="skill-icon"> Adobe Lightroom
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="lightroom-progress" data-progress="50"></div>
+                <span class="progress-percent">50%</span>
+            </div>
+        </div>
+        <hr style="margin: 20px 0; border: 1px solid #ddd;">
+        <div class="skill">
+            <p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/fd/Microsoft_Office_Word_%282019%E2%80%93present%29.svg/130px-Microsoft_Office_Word_%282019%E2%80%93present%29.svg.png" class="skill-icon"> Microsoft Word
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="word-progress" data-progress="85"></div>
+                <span class="progress-percent">85%</span>
+            </div>
+        </div>
+        <div class="skill">
+            <p>
+                <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/Microsoft_Office_Excel_%282019%E2%80%93present%29.svg/2203px-Microsoft_Office_Excel_%282019%E2%80%93present%29.svg.png" class="skill-icon"> Microsoft Excel
+            </p>
+            <div class="progress-bar">
+                <div class="progress" id="excel-progress" data-progress="65"></div>
+                <span class="progress-percent">65%</span>
+            </div>
+        </div>
+    </section>
+    <script>
+        // دالة لتحديد عرض شريط التقدم
+        function setProgress(progressId, value) {
+            const progressBar = document.getElementById(progressId);
+            if (progressBar) {
+                progressBar.style.width = `${value}%`;
+                progressBar.nextElementSibling.textContent = `${value}%`; // تحديث النسبة المئوية
+            }
+        }
+
+        // تعيين قيم أشرطة التقدم بشكل فردي
+        setProgress("html-progress", 40);
+        setProgress("css-progress", 35);
+        setProgress("js-progress", 10);
+        setProgress("c++-progress", 10);
+        setProgress("android-progress", 30);
+        setProgress("blender-progress", 40);
+        setProgress("photoshop-progress", 85);
+        setProgress("premiere-progress", 75);
+        setProgress("after-effects", 20);
+        setProgress("adobe-audition", 20);
+        setProgress("lightroom-progress", 60);
+        setProgress("word-progress", 85);
+        setProgress("excel-progress", 65);
+    </script>
+</body>
+</html>
+    <!-- قسم الأيقونات في منتصف الصفحة -->
+ 
+
+    <script>
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loading').style.display = 'none';
+            }, 9000);
+
+            // تحريك أشرطة التقدم
+            document.querySelectorAll('.progress').forEach(progress => {
+                const width = progress.getAttribute('data-progress');
+                progress.style.width = width + '%';
+            });
+
+            // ظهور المحتوى بشكل تدريجي
+            let sections = document.querySelectorAll("section");
+            sections.forEach((section, index) => {
+                setTimeout(() => {
+                    section.classList.add("visible");
+                }, index * 300); // تأخير 300 مللي ثانية بين كل قسم
+            });
+        });
+
+        // تأثير التموج (Ripple Effect)
+        document.addEventListener('click', function(e) {
+            if (e.target.classList.contains('btn')) {
+                const ripple = document.createElement('span');
+                ripple.classList.add('ripple');
+                e.target.appendChild(ripple);
+
+                const rect = e.target.getBoundingClientRect();
+                const size = Math.max(rect.width, rect.height);
+                ripple.style.width = ripple.style.height = `${size}px`;
+                ripple.style.left = `${e.clientX - rect.left - size / 2}px`;
+                ripple.style.top = `${e.clientY - rect.top - size / 2}px`;
+
+                ripple.addEventListener('animationend', () => {
+                    ripple.remove();
+                });
+            }
+        });
+
+        // وظيفة لإظهار/إخفاء القائمة المنسدلة
+        function toggleMenu() {
+            const navMenu = document.getElementById('navMenu');
+            navMenu.classList.toggle('open');
+        }
+
+        // إغلاق القائمة عند النقر خارجها
+        document.addEventListener('click', function(event) {
+            const navMenu = document.getElementById('navMenu');
+            const menuIcon = document.querySelector('.menu-icon');
+            if (!menuIcon.contains(event.target) && !navMenu.contains(event.target)) {
+                navMenu.classList.remove('open');
+            }
+        });
+    </script>
+<!DOCTYPE html>
+<html lang="ar">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>شهاداتي</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+        }
+        .certificates-section {
+            width: 80%;
+            margin: auto;
+        }
+        .certificates-tabs {
+            display: flex;
+            justify-content: center;
+            gap: 10px;
+            margin-bottom: 20px;
+        }
+        .tab-button {
+            padding: 10px 20px;
+            border: none;
+            background-color: white;
+            cursor: pointer;
+            font-size: 16px;
+            border-radius: 5px;
+        }
+        .tab-button.active {
+            background-color: #FFD700;
+            color: white;
+        }
+        .certificates-content {
+            display: flex;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .certificate-category {
+            display: none;
+            width: 100%;
+        }
+        .certificate-category.active {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+        }
+        .certificate-item {
+            text-align: center;
+            width: 250px;
+        }
+        .certificate-item img {
+            width: 100%;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        }
+    </style>
+</head>
+<body>
+
+    <!DOCTYPE html>
+    <html lang="ar">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>شهاداتي</title>
+        <style>
+            /* تنسيق عام */
+            body {
+                font-family: Arial, sans-serif;
+                direction: rtl;
+                text-align: center;
+                background-color: #f9f9f9;
+                margin: 0;
+                padding: 0;
+            }
+    
+            h2 {
+                color: #333;
+                margin-top: 20px;
+            }
+    
+            /* تنسيق التبويبات */
+            .certificates-tabs {
+                display: flex;
+                justify-content: center;
+                gap: 10px;
+                margin-bottom: 20px;
+                flex-wrap: wrap;
+            }
+    
+            .tab-button {
+                padding: 10px 20px;
+                border: none;
+                background-color: #ddd;
+                cursor: pointer;
+                font-size: 16px;
+                border-radius: 5px;
+                transition: background-color 0.3s ease;
+            }
+    
+            .tab-button.active {
+                background-color: #007bff;
+                color: white;
+            }
+    
+            /* تنسيق محتوى الشهادات */
+            .certificates-content {
+                display: flex;
+                justify-content: center;
+                flex-wrap: wrap;
+                gap: 20px;
+                padding: 20px;
+            }
+    
+            .certificate-category {
+                display: none;
+                width: 100%;
+            }
+    
+            .certificate-category.active {
+                display: flex;
+                flex-wrap: wrap;
+                justify-content: center;
+                gap: 20px;
+            }
+    
+            .certificate-item {
+                text-align: center;
+                width: 250px;
+                background-color: white;
+                border-radius: 10px;
+                box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+                overflow: hidden;
+                transition: transform 0.3s ease;
+            }
+    
+            .certificate-item:hover {
+                transform: translateY(-5px);
+            }
+    
+            .certificate-item img {
+                width: 100%;
+                height: 150px;
+                object-fit: cover;
+                border-bottom: 2px solid #007bff;
+            }
+    
+            .certificate-item p {
+                padding: 10px;
+                font-size: 16px;
+                color: #333;
+            }
+        </style>
+    </head>
+    <body>
+    
+        <!-- قسم الشهادات -->
+        <section class="certificates-section">
+            <h2>My testimonials</h2>
+            <br>
+            <br>
+            <div class="certificates-tabs">
+                <button class="tab-button active" data-category="cyber-security">Cyber ​​security</button>
+                <button class="tab-button" data-category="web-development">Web development</button>
+                <button class="tab-button" data-category="graphic-design">Graphic design</button>
+                <button class="tab-button" data-category="UI-UX">UI-UX</button>
+                <button class="tab-button" data-category="skills-role">...Another</button>
+            </div>
+    
+            <div class="certificates-content">
+                <!-- شهادات الأمن السيبراني -->
+                <div id="cyber-security" class="certificate-category active">
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQG1yYkjR6u61g/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1734731804762?e=1741366800&v=beta&t=TYM57hrxuZ5j0XPA_nNQgmfjGanbKmAacY7DgKbkyxA" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQG1yYkjR6u61g/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1734731804762?e=1741366800&v=beta&t=TYM57hrxuZ5j0XPA_nNQgmfjGanbKmAacY7DgKbkyxA" alt="Certificate in Cyber ​​Security Fundamentals ">
+                        </a>
+                        <p>Certificate in Cyber ​​Security Fundamentals</p>
+                    </div>
+                </div>
+    
+                <!-- شهادات تطوير الويب -->
+                <div id="web-development" class="certificate-category">
+                                        
+                </div>
+    
+                <!-- شهادات التصميم الجرافيكي -->
+                <div id="graphic-design" class="certificate-category">
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQHPeGiJGJ7NnQ/profile-treasury-image-shrink_800_800/B4EZUWCAvyHMAY-/0/1739831385706?e=1741215600&v=beta&t=krQf-RqX_sVrt9HAcL3Q9A6pzJ4jMQTH2ZSvKpHlqi4" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQHPeGiJGJ7NnQ/profile-treasury-image-shrink_800_800/B4EZUWCAvyHMAY-/0/1739831385706?e=1741215600&v=beta&t=krQf-RqX_sVrt9HAcL3Q9A6pzJ4jMQTH2ZSvKpHlqi4" alt="In appreciation of your dedication and achievement in completing the graphic design course and mastering the basics of design">
+                        </a>
+                        <p>In appreciation of your dedication and achievement in completing the graphic design course and mastering the basics of design</p>
+                    </div>
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQE2EhMjT4PVng/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1734731877682?e=1741219200&v=beta&t=N5dLUoyiWJOaRPG1wurQGRdf6tFovgl9pwuqECL_NCs" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQE2EhMjT4PVng/profile-treasury-image-shrink_1920_1920/profile-treasury-image-shrink_1920_1920/0/1734731877682?e=1741219200&v=beta&t=N5dLUoyiWJOaRPG1wurQGRdf6tFovgl9pwuqECL_NCs" alt="Design Art">
+                        </a>
+                        <p>Design Art</p>
+                    </div>
+
+                    <div class="certificate-item">
+                        <a href="hhttps://media.licdn.com/dms/image/v2/D4E2DAQHdQOwYE6P34A/profile-treasury-image-shrink_480_480/profile-treasury-image-shrink_480_480/0/1734731607469?e=1741226400&v=beta&t=PZ9om38WaxbgEGxq7-CA4ougHqyawammGiduuEpD-aU" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQHdQOwYE6P34A/profile-treasury-image-shrink_480_480/profile-treasury-image-shrink_480_480/0/1734731607469?e=1741226400&v=beta&t=PZ9om38WaxbgEGxq7-CA4ougHqyawammGiduuEpD-aU" alt="Certificate of attendance in graphic design with artificial intelligence">
+                        </a>
+                        <p>Certificate of attendance in graphic design with artificial intelligence</p>
+                    </div>
+
+
+                </div>
+    
+                <!-- شهادات مهارات عامة -->
+                <div id="skills-role" class="certificate-category">
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQFfXiyscEU7zA/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1736535912334?e=1741219200&v=beta&t=NoBlMnjcgwAhkaT75glsCgN0lztYJ1Q6xgpXt8YkmOA" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQFfXiyscEU7zA/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1736535912334?e=1741219200&v=beta&t=NoBlMnjcgwAhkaT75glsCgN0lztYJ1Q6xgpXt8YkmOA" alt="Self-employment (workshop) 7 training hours">
+                        </a>
+                        <p>Self-employment (workshop) 7 training hours</p>
+                    </div>
+                    
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQFRNyacxGgRVw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1734731552637?e=1741226400&v=beta&t=sbWoS0aXWRRx4_o5lZK7XJh83LFNWC5LPupk-PaGkKc" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQFRNyacxGgRVw/profile-treasury-image-shrink_800_800/profile-treasury-image-shrink_800_800/0/1734731552637?e=1741226400&v=beta&t=sbWoS0aXWRRx4_o5lZK7XJh83LFNWC5LPupk-PaGkKc" alt="Concepts of combating human trafficking crimes">
+                        </a>
+                        <p>Concepts of combating human trafficking crimes</p>
+                    </div>
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQGZqqCDR5jO5A/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734746521871?e=1741226400&v=beta&t=XoHHJGRWLqOPoOvy4EtuyLobHmHEHFH7ghUl7tdfkEY" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQGZqqCDR5jO5A/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734746521871?e=1741226400&v=beta&t=XoHHJGRWLqOPoOvy4EtuyLobHmHEHFH7ghUl7tdfkEY" alt="How to learn to create content and profit from it without previous experience">
+                        </a>
+                        <p>How to learn to create content and profit from it without previous experience</p>
+                    </div>
+
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQEn1EWRZBIhjw/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734747015611?e=1741226400&v=beta&t=Wpds3EB5ILOuA0LubJtgOJbLqSITDOrr2oDCHaM0Bwk" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQEn1EWRZBIhjw/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734747015611?e=1741226400&v=beta&t=Wpds3EB5ILOuA0LubJtgOJbLqSITDOrr2oDCHaM0Bwk" alt="Basics of electronic services">
+                        </a>
+                        <p>Basics of electronic services</p>
+                    </div>
+
+
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQE_2lV3Ec4AzQ/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734731285329?e=1741226400&v=beta&t=NYM_npgkfn_S2PlQemQDafz-xasPRpYi5wzF84euxPs" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQE_2lV3Ec4AzQ/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734731285329?e=1741226400&v=beta&t=NYM_npgkfn_S2PlQemQDafz-xasPRpYi5wzF84euxPs" alt="Skills to prepare for university life">
+                        </a>
+                        <p>Skills to prepare for university life</p>
+                    </div>
+
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQFtDREl35IPiQ/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734731482891?e=1741226400&v=beta&t=FqeYULtMCg6xDQFPoEFEcqIUCDhKZfmu8wi5fPgr3tI" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQFtDREl35IPiQ/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734731482891?e=1741226400&v=beta&t=FqeYULtMCg6xDQFPoEFEcqIUCDhKZfmu8wi5fPgr3tI" alt="Digital drug attendance certificate">
+                        </a>
+                        <p>Digital drug attendance certificate</p>
+                    </div>
+
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQFEVZ5iuKH2_w/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734731512601?e=1741226400&v=beta&t=jaJRqQ8LdNwkfBF-2DUMQu2Cx0y-VKKjXozjDWkKae8" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQFEVZ5iuKH2_w/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734731512601?e=1741226400&v=beta&t=jaJRqQ8LdNwkfBF-2DUMQu2Cx0y-VKKjXozjDWkKae8" alt="Certificate of attendance at fraud investigation between artificial intelligence and human capabilities">
+                        </a>
+                        <p>Certificate of attendance at fraud investigation between artificial intelligence and human capabilities</p>
+                    </div>
+
+
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQGrSNWbN3qzXw/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734741508488?e=1741226400&v=beta&t=7RqTJmKuTp1bqCQ53fK8S8BCGDFXTc4MX_lsqllS4BY" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQGrSNWbN3qzXw/profile-treasury-document-cover-images_480/profile-treasury-document-cover-images_480/0/1734741508488?e=1741226400&v=beta&t=7RqTJmKuTp1bqCQ53fK8S8BCGDFXTc4MX_lsqllS4BY" alt="Certificate of attendance on the use of artificial intelligence in media misinformation">
+                        </a>
+                        <p>Certificate of attendance on the use of artificial intelligence in media misinformation</p>
+                    </div>
+
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQGrEnU1cicmDQ/profile-treasury-image-shrink_480_480/profile-treasury-image-shrink_480_480/0/1734731393848?e=1741226400&v=beta&t=KSsaIFZDzc0RXIwlo7iPrT9FCDr0xfa5Y10Az8ofufc" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQGrEnU1cicmDQ/profile-treasury-image-shrink_480_480/profile-treasury-image-shrink_480_480/0/1734731393848?e=1741226400&v=beta&t=KSsaIFZDzc0RXIwlo7iPrT9FCDr0xfa5Y10Az8ofufc" alt="How to get acceptance from a distinguished international university">
+                        </a>
+                        <p>How to get acceptance from a distinguished international university</p>
+                    </div>
+
+
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQEcvYluU0s1GQ/profile-treasury-image-shrink_480_480/profile-treasury-image-shrink_480_480/0/1734731452015?e=1741226400&v=beta&t=NUaCnC2IpdZxdEuCQwgy-ezQNaGqsqb1QRjKv-RNtNQ" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQEcvYluU0s1GQ/profile-treasury-image-shrink_480_480/profile-treasury-image-shrink_480_480/0/1734731452015?e=1741226400&v=beta&t=NUaCnC2IpdZxdEuCQwgy-ezQNaGqsqb1QRjKv-RNtNQ" alt="Obtaining an IELTS/TOEFL score: experiences and techniques">
+                        </a>
+                        <p>Obtaining an IELTS/TOEFL score: experiences and techniques</p>
+                    </div>
+
+
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQGmk_wSDsHZvQ/profile-treasury-image-shrink_480_480/profile-treasury-image-shrink_480_480/0/1734731853664?e=1741226400&v=beta&t=_PyKPrXMCKhwvK0msXrdod-V_RM7Fry6duFzM8pys-Q" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQGmk_wSDsHZvQ/profile-treasury-image-shrink_480_480/profile-treasury-image-shrink_480_480/0/1734731853664?e=1741226400&v=beta&t=_PyKPrXMCKhwvK0msXrdod-V_RM7Fry6duFzM8pys-Q" alt="The world of robotics">
+                        </a>
+                        <p>The world of robotics</p>
+                    </div>
+
+
+                    <div class="certificate-item">
+                        <a href="https://media.licdn.com/dms/image/v2/D4E2DAQEB75_dkp3zYA/profile-treasury-image-shrink_480_480/profile-treasury-image-shrink_480_480/0/1734731832952?e=1741226400&v=beta&t=8YhQV3umavSf48PGJQLOg4KTE-THQWOHv-ISHfrtygo" target="_blank" rel="noopener noreferrer">
+                            <img src="https://media.licdn.com/dms/image/v2/D4E2DAQEB75_dkp3zYA/profile-treasury-image-shrink_480_480/profile-treasury-image-shrink_480_480/0/1734731832952?e=1741226400&v=beta&t=8YhQV3umavSf48PGJQLOg4KTE-THQWOHv-ISHfrtygo" alt="An introduction to creativity in problem solving">
+                        </a>
+                        <p>An introduction to creativity in problem solving</p>
+                    </div>
+
+
+
+                </div>
+    
+                <!-- شهادات UI/UX -->
+                <div id="UI-UX" class="certificate-category">
+                    <div class="certificate-item">
+                        <a href="https://g.top4top.io/p_3344t2u0n1.png" target="_blank" rel="noopener noreferrer">
+                            <img src="https://g.top4top.io/p_3344t2u0n1.png" alt="شهادة UI/UX">
+                        </a>
+                        <p>Basics of user experience design</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+    
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const buttons = document.querySelectorAll(".tab-button");
+                const categories = document.querySelectorAll(".certificate-category");
+    
+                buttons.forEach(button => {
+                    button.addEventListener("click", function () {
+                        // إزالة الكلاس "active" من جميع الأزرار
+                        buttons.forEach(btn => btn.classList.remove("active"));
+                        // إضافة الكلاس "active" للزر الحالي
+                        this.classList.add("active");
+    
+                        // إخفاء جميع الفئات
+                        categories.forEach(category => category.classList.remove("active"));
+                        // عرض الفئة المحددة فقط
+                        document.getElementById(this.dataset.category).classList.add("active");
+                    });
+                });
+            });
+        </script>
+    </body>
+    </html>
+</section>
+         <style>
+        body {
+            font-family: Arial, sans-serif;
+            direction: rtl;
+            text-align: center;
+        }
+        h2 {
+            color: black; /* جعل اللون أسود */
+        }
+    </style>
+    </section>
+
+
+
+    <!DOCTYPE html>
+    <html lang="ar">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>محتوى مستقل</title>
+    </head>
+    <body>
+    
+    <!-- ✅ الحاوية الرئيسية للمحتوى المستقل -->
+    <div id="custom-content">
+        <style>
+            #custom-content {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                min-height: 100vh;
+                padding: 50px;
+            }
+    
+            #custom-card {
+    background: white; /* ✅ جعل الخلفية بيضاء تمامًا */
+    padding: 30px;
+    border-radius: 20px;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    max-width: 900px;
+    border: 1px solid rgba(0, 0, 0, 0.2); /* ✅ ضبط لون الحدود */
+    transition: all 0.3s ease-in-out;
+    color: black; /* ✅ تغيير لون النص ليكون أكثر وضوحًا */
+    font-family: Arial, sans-serif;
+}
+
+    
+            #custom-images-container {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                align-items: center;
+            }
+    
+            .custom-image-box {
+                width: 100%;
+                max-width: 500px; /* ✅ ضبط حجم الصور ليكون متناسبًا مع المربع */
+                height: 250px;
+                border-radius: 50px;
+                overflow: hidden;
+                background: #fff;
+                box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+                transition: transform 0.4s ease, box-shadow 0.4s ease;
+                cursor: pointer;
+                position: relative;
+            }
+    
+            .custom-image-box img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                border-radius: 15px;
+                transition: transform 0.3s ease, filter 0.3s ease;
+            }
+    
+            .custom-image-box:hover {
+                transform: scale(1.08) rotate(1deg);
+                box-shadow: 0 15px 35px rgba(255, 255, 255, 0.2);
+            }
+    
+            .custom-image-box:hover img {
+                filter: brightness(0.9);
+            }
+    
+            .custom-image-box::after {
+                content: "Click to watch";
+                position: absolute;
+                bottom: 10px;
+                left: 50%;
+                transform: translateX(-50%);
+                background: rgba(0, 0, 0, 0.7);
+                color: white;
+                padding: 5px 12px;
+                font-size: 14px;
+                border-radius: 8px;
+                opacity: 0;
+                transition: opacity 0.3s ease-in-out;
+            }
+    
+            .custom-image-box:hover::after {
+                opacity: 1;
+            }
+    
+            .custom-share-button {
+                margin-top: 15px;
+                padding: 12px 25px;
+                border: none;
+                border-radius: 30px;
+                background: linear-gradient(135deg, yellow, #ff4b2b);
+                color: white;
+                font-size: 16px;
+                font-weight: bold;
+                cursor: pointer;
+                transition: all 0.3s ease-in-out;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                box-shadow: 0 5px 15px rgba(255, 65, 108, 0.4);
+            }
+    
+            .custom-share-button:hover {
+                background: linear-gradient(135deg, yellow, #ff4b2b);
+                transform: scale(1.1);
+                box-shadow: 0 8px 20px rgba(255, 65, 108, 0.6);
+            }
+        </style>
+    
+        <div id="custom-card">
+            <h2>Here I post content that you might like, try it and check it out</h2>
+            <br>
+            <br>
+            <div id="custom-images-container">
+                <a href="https://www.facebook.com/profile.php?id=61559023596461" target="_blank">
+                    <div class="custom-image-box">
+                        <img src="https://k.top4top.io/p_3345d2hky1.png" alt="Facebook">
+                    </div>
+                </a>
+                <button class="custom-share-button" onclick="shareCustomContent('https://www.facebook.com/profile.php?id=61559023596461')">
+                    Copy link
+                </button>
+    
+                <a href="https://www.youtube.com/@Ahmed_Hatem1" target="_blank">
+                    <div class="custom-image-box">
+                        <img src="https://j.top4top.io/p_33453zcj41.png" alt="YouTube">
+                    </div>
+                </a>
+                <button class="custom-share-button" onclick="shareCustomContent('https://www.youtube.com/@Ahmed_Hatem1')">
+                    Copy link
+                </button>
+            </div>
+        </div>
+    
+        <script>
+            function shareCustomContent(url) {
+                if (navigator.share) {
+                    navigator.share({
+                        title: ' Great content you must watch!',
+                        url: url
+                    }).then(() => console.log(' Shared successfully'))
+                    .catch((error) => console.log(' An error occurred sharing', error));
+                } else {
+                    copyToCustomClipboard(url);
+                    alert(" The link has been copied to the clipboard! You can share it now.");
+                }
+            }
+    
+            function copyToCustomClipboard(text) {
+                const tempInput = document.createElement("input");
+                tempInput.value = text;
+                document.body.appendChild(tempInput);
+                tempInput.select();
+                document.execCommand("copy");
+                document.body.removeChild(tempInput);
+            }
+        </script>
+    </div>
+    
+    </body>
+    </html>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const buttons = document.querySelectorAll(".tab-button");
+            const categories = document.querySelectorAll(".certificate-category");
+
+            buttons.forEach(button => {
+                button.addEventListener("click", function () {
+                    // إزالة الكلاس "active" من جميع الأزرار
+                    buttons.forEach(btn => btn.classList.remove("active"));
+                    // إضافة الكلاس "active" للزر الحالي
+                    this.classList.add("active");
+
+                    // إخفاء جميع الفئات
+                    categories.forEach(category => category.classList.remove("active"));
+                    // عرض الفئة المحددة فقط
+                    document.getElementById(this.dataset.category).classList.add("active");
+                });
+            });
+        });
+    </script>
+
+</body>
+</html>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>فوتر عصري متجاوب</title>
+  <style>
+    /* إزالة الهوامش الافتراضية للجسم */
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      overflow-x: hidden; /* لمنع التمرير الأفقي */
+    }
+
+    /* تصميم الفوتر المتجاوب */
+    .footer {
+      position: relative;
+      background: linear-gradient(135deg, rgba(15, 15, 15, 0.9), rgba(50, 50, 50, 0.9));
+      backdrop-filter: blur(12px);
+      color: white;
+      padding: 50px 20px;
+      text-align: center;
+      font-size: 18px;
+      font-weight: bold;
+      letter-spacing: 0.5px;
+      width: 100%;
+      height: auto;
+      overflow: hidden;
+      box-shadow: 0px -5px 30px rgba(0, 0, 0, 0.4);
+      border-top: 2px solid rgba(255, 255, 255, 0.2);
+      animation: fadeInUp 1.2s ease-out;
+      box-sizing: border-box;
+    }
+
+    /* ترتيب عناصر الفوتر */
+    .footer-container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 15px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .footer p {
+      margin: 0;
+      font-size: 18px;
+      font-weight: bold;
+      color: rgba(255, 255, 255, 0.9);
+    }
+
+    /* ضبط أيقونات الفوتر */
+    .footer-icons {
+      display: flex;
+      justify-content: center;
+      gap: 18px;
+      margin-top: 15px;
+      flex-wrap: wrap;
+    }
+
+    .footer-icons a {
+      color: white;
+      font-size: 26px;
+      transition: all 0.4s ease-in-out;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+      box-shadow: inset 0 0 10px rgba(255, 255, 255, 0.1), 0 0 15px rgba(255, 255, 255, 0.3);
+      backdrop-filter: blur(10px);
+    }
+
+    .footer-icons a:hover {
+      transform: translateY(-6px) scale(1.2);
+      color: #FFD700;
+      box-shadow: 0 0 30px rgba(255, 215, 0, 0.85), inset 0 0 10px rgba(255, 255, 255, 0.4);
+    }
+
+    /* تأثير الظهور */
+    @keyframes fadeInUp {
+      from {
+        opacity: 0;
+        transform: translateY(40px);
+      }
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* تصميم متجاوب لعناصر الفوتر */
+    @media (max-width: 900px) {
+      .footer-icons {
+        justify-content: center;
+      }
+    }
+  </style>
+  <!-- رابط أيقونات Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
+</head>
+<body>
+
+  <footer class="footer">
+    <div class="footer-container">
+      <p>&copy; 2025 All rights reserved | design <strong>Ahmed Hatem</strong></p>
+      <div class="footer-icons">
+        <a href="https://www.facebook.com/profile.php?id=100030429453407" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.facebook.com/profile.php?id=100080199942408" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+        <a href="https://www.instagram.com/ahmedhatem_1_1/" target="_blank" title="Instagram"><i class="fab fa-instagram"></i></a>
+        <a href="https://www.behance.net/398e68e2" target="_blank" title="Behaance"><i class="fab fa-behance"></i></a>
+        <a href="https://www.linkedin.com/in/ahmedhatem111/" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+        <a href="https://wa.me/qr/CGNWGZIIIEIMF1" target="_blank" title="WhatsApp"><i class="fab fa-whatsapp"></i></a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
