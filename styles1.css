@@ -718,35 +718,4 @@ body {
     object-fit: contain;
 }
 
-/* ✅ تصميم الصندوق الرئيسي ومنع الإضافات */
-#custom-links-box {
-    width: 100%;
-    max-width: 600px; /* أقصى عرض للصندوق */
-    max-height: 100vh; /* يمنع الامتداد أكثر من ارتفاع الشاشة */
-    padding: 20px;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-    border-radius: 10px;
-    background-color: #fff;
-    text-align: center;
-    overflow: hidden; /* ✅ يمنع أي محتوى زائد */
-    position: relative; /* ✅ يمنع التداخل مع عناصر أخرى */
-}
-
-/* ✅ لا يسمح بإضافة أي محتوى خارجي */
-#custom-links-box * {
-    position: relative;
-    z-index: 2;
-}
-
-/* ✅ الخلفية لحصر المحتوى ومنع أي امتداد خارجي */
-#custom-links-box::after {
-    content: "";
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    background: white;
-    top: 0;
-    left: 0;
-    z-index: 1; /* يمنع أي شيء من الامتداد خارج المربع */
-}
 
