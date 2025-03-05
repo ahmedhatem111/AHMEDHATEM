@@ -685,28 +685,68 @@ body {
     width: 100vw;
     overflow-x: hidden;
 }
-/* جعل النص والصورة في سطر واحد وتوسيطهما */
 .profile-info {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* توسيط العناصر أفقيًا */
+    flex-direction: row; /* جعل العناصر في نفس السطر */
+    align-items: center; /* محاذاة العناصر عموديًا */
+    justify-content: center; /* توسيط العناصر أفقيًا */
+    gap: -10px; /* تعديل المسافة بين النص والصورة */
     text-align: center;
-    margin-top: 20px; /* تعديل المسافة من الأعلى */
+    margin-top: 20px;
+    flex-wrap: wrap; /* يسمح بتغيير الاتجاه على الشاشات الصغيرة */
+    width: 100%; /* جعل العنصر يمتد بعرض الحاوية */
 }
 
 /* جعل النص والصورة في نفس السطر */
 .profile-info h1 {
     display: flex;
     align-items: center; /* محاذاة النص والصورة في نفس المستوى */
-    justify-content: center; /* توسيط العنصر أفقيًا */
-    gap: -200px; /* مسافة بين الاسم والصورة */
-    margin: 0; /* إزالة المسافات الزائدة */
+    gap: -5px; /* تعديل المسافة بين النص والصورة */
+    margin: 0 auto; /* توسيط العنصر بالكامل */
     padding: 0;
+    white-space: nowrap; /* منع انقسام النص في سطرين */
+    text-align: center; /* توسيط النص */
+    .profile-info h1 {
+    margin-left: -10px; /* تحريك النص 50px إلى اليمين */
+
 }
 
 /* تنسيق الصورة */
 .name-image {
-    width: 60px; /* عرض الصورة */
-    height: 60px; /* ارتفاع الصورة */
-    object-fit: contain; /* منع التشويه */
+    width: 60px;
+    height: 60px;
+    object-fit: contain;
 }
+
+/* ✅ تصميم الصندوق الرئيسي ومنع الإضافات */
+#custom-links-box {
+    width: 100%;
+    max-width: 600px; /* أقصى عرض للصندوق */
+    max-height: 100vh; /* يمنع الامتداد أكثر من ارتفاع الشاشة */
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+    background-color: #fff;
+    text-align: center;
+    overflow: hidden; /* ✅ يمنع أي محتوى زائد */
+    position: relative; /* ✅ يمنع التداخل مع عناصر أخرى */
+}
+
+/* ✅ لا يسمح بإضافة أي محتوى خارجي */
+#custom-links-box * {
+    position: relative;
+    z-index: 2;
+}
+
+/* ✅ الخلفية لحصر المحتوى ومنع أي امتداد خارجي */
+#custom-links-box::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: white;
+    top: 0;
+    left: 0;
+    z-index: 1; /* يمنع أي شيء من الامتداد خارج المربع */
+}
+

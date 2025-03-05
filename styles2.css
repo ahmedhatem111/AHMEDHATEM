@@ -1,130 +1,59 @@
-
-/* صفحة تحميل */
-.loading-screen {
-    position: fixed;
-    width: 100%;
-    height: 100%;
-    background-color: black;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    z-index: 1000;
-    transition: opacity 0.5s ease-in-out;
+/* 🌟 متغيرات CSS لتسهيل التعديلات */
+:root {
+    --primary-color: #ffcc00;
+    --secondary-color: #ffdd44;
+    --background-color: #000;
+    --text-color: #fff;
+    --shadow-color: rgba(255, 255, 255, 0.3);
+    --gradient-background: linear-gradient(135deg, #444, #111);
+    --gradient-button: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+    --glow-color: rgba(255, 204, 0, 0.6);
+    --transition-speed: 0.3s;
 }
 
-.loading-screen.hidden {
-    opacity: 0;
-    pointer-events: none;
-}
-
-.loader {
-    border: 6px solid rgba(255, 255, 255, 0.2);
-    border-top: 6px solid #ffcc00;
-    border-radius: 50%;
-    width: 60px;
-    height: 60px;
-    animation: spin 1s linear infinite;
-}
-
-@keyframes spin {
-    0% { transform: rotate(0deg); }
-    100% { transform: rotate(360deg); }
-}
-
-/* تنسيق عام للصفحة */
+/* 🌌 تنسيق عام للصفحة */
 body {
     font-family: 'Cairo', sans-serif;
-    background-color: #000;
+    background-color: var(--background-color);
     text-align: center;
     margin: 0;
     padding: 0;
-    color: white;
+    color: var(--text-color);
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 100vh;
+    min-height: 100vh;
     flex-direction: column;
     animation: fadeIn 1s ease-in-out;
     overflow: hidden;
     position: relative;
 }
 
-/* إخفاء المحتوى الأساسي حتى انتهاء التحميل */
-.main-content {
-    display: none;
-}
-
+/* 🔥 تأثير الدخول */
 @keyframes fadeIn {
     from { opacity: 0; transform: translateY(-20px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* إضافة سكريبت لتحميل الصفحة */
-<script>
-    document.addEventListener("DOMContentLoaded", function() {
-        setTimeout(() => {
-            document.querySelector(".loading-screen").classList.add("hidden");
-            document.querySelector(".main-content").style.display = "block";
-        }, 2000);
-    });
-</script>
-
-
-
-
-
-
-
-
-
-
-
-/* تنسيق عام للصفحة */
-body {
-    font-family: 'Cairo', sans-serif;
-    background-color: #000;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-    color: white;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    flex-direction: column;
-    animation: fadeIn 1s ease-in-out;
-    overflow: hidden;
-    position: relative;
-}
-
-@keyframes fadeIn {
-    from { opacity: 0; transform: translateY(-20px); }
-    to { opacity: 1; transform: translateY(0); }
-}
-
-/* تنسيق العنوان الرئيسي */
+/* 🎆 تنسيق العنوان */
 h1 {
-    color: #fff;
-    font-size: 3em;
+    color: var(--text-color);
+    font-size: clamp(2rem, 8vw, 3rem); /* حجم متجاوب */
     margin-bottom: 20px;
     text-transform: uppercase;
     letter-spacing: 3px;
     font-weight: bold;
-    text-shadow: 0 4px 8px rgba(255, 255, 255, 0.3);
-    animation: slideIn 1s ease-in-out;
+    text-shadow: 0 4px 8px var(--shadow-color);
+    animation: slideIn 1s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
+/* 🚀 تأثير دخول العنوان */
 @keyframes slideIn {
     from { opacity: 0; transform: translateY(-30px); }
     to { opacity: 1; transform: translateY(0); }
 }
 
-/* إخفاء المحتوى مبدئيًا */
-.hidden {
-    display: none;
-}
-
-/* تأثير الخلفية المتحركة مع النجوم */
+/* ✨ تأثير الخلفية المتحركة */
 body::before {
     content: '';
     position: absolute;
@@ -134,21 +63,16 @@ body::before {
     height: 100%;
     background: radial-gradient(circle at center, rgba(255,255,255,0.1) 10%, rgba(0,0,0,1) 90%);
     z-index: -1;
-    animation: backgroundMove 5s infinite alternate ease-in-out;
+    animation: backgroundMove 6s infinite alternate ease-in-out;
 }
 
+/* 🎭 تحريك الخلفية */
 @keyframes backgroundMove {
-    from { transform: scale(1); }
-    to { transform: scale(1.1); }
+    from { transform: translateY(0); }
+    to { transform: translateY(-10px); }
 }
 
-/* نجوم متحركة للخلفية */
-@keyframes twinkle {
-    0% { opacity: 0.2; transform: scale(1); }
-    50% { opacity: 1; transform: scale(1.2); }
-    100% { opacity: 0.2; transform: scale(1); }
-}
-
+/* ⭐️ النجوم المتحركة */
 .stars {
     position: absolute;
     width: 100%;
@@ -164,20 +88,18 @@ body::before {
     height: 3px;
     background: white;
     border-radius: 50%;
-    animation: twinkle 3s infinite;
     opacity: 0.2;
+    animation: twinkle 3s infinite;
 }
 
-/* توزيع النجوم عشوائياً */
-for (let i = 0; i < 100; i++) {
-    let star = document.createElement('span');
-    star.style.top = Math.random() * 100 + 'vh';
-    star.style.left = Math.random() * 100 + 'vw';
-    star.style.animationDuration = (Math.random() * 2 + 1) + 's';
-    document.querySelector('.stars').appendChild(star);
+/* ✨ تأثير الوميض */
+@keyframes twinkle {
+    0% { opacity: 0.2; transform: scale(1); }
+    50% { opacity: 1; transform: scale(1.3); }
+    100% { opacity: 0.2; transform: scale(1); }
 }
 
-/* تنسيق الحاوية الرئيسية للأزرار */
+/* 🎯 تنسيق الحاوية الرئيسية */
 .buttons-container {
     display: flex;
     flex-direction: column;
@@ -185,53 +107,92 @@ for (let i = 0; i < 100; i++) {
     gap: 20px;
 }
 
-/* تصميم صندوق الزر */
+/* 📦 تصميم صندوق الزر */
 .button-box {
-    background: linear-gradient(135deg, #444, #111);
+    background: var(--gradient-background);
     padding: 20px;
     margin: 10px;
     border-radius: 15px;
-    box-shadow: 0 8px 16px rgba(255, 255, 255, 0.2);
+    box-shadow: 0 8px 16px var(--shadow-color);
     width: 280px;
     text-align: center;
-    transition: transform 0.3s, box-shadow 0.3s;
-    position: relative;
-    overflow: hidden;
+    transition: transform var(--transition-speed), box-shadow var(--transition-speed);
 }
 
 .button-box:hover {
     transform: scale(1.08);
-    box-shadow: 0 12px 24px rgba(255, 255, 255, 0.3);
+    box-shadow: 0 12px 24px var(--shadow-color);
 }
 
 .button-box p {
     margin-bottom: 12px;
-    font-size: 20px;
+    font-size: 1.25rem;
     color: #eee;
     font-weight: bold;
 }
 
-/* تنسيق الزر */
+/* 🎨 تصميم الزر */
 .custom-button {
-    background: linear-gradient(90deg, #ffcc00, #ffdd44);
+    background: var(--gradient-button);
     color: black;
     border: none;
     padding: 14px 28px;
-    font-size: 18px;
+    font-size: 1.125rem;
     cursor: pointer;
     border-radius: 10px;
-    transition: background 0.3s, transform 0.2s, box-shadow 0.3s;
+    transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
     font-weight: bold;
     text-transform: uppercase;
     position: relative;
-    overflow: hidden;
 }
 
+.custom-button::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    border-radius: 10px;
+    background: var(--glow-color);
+    opacity: 0;
+    transition: opacity var(--transition-speed);
+    z-index: -1;
+}
+
+/* 🖱️ تأثيرات عند التحريك */
 .custom-button:hover {
+    transform: scale(1.1);
     background: linear-gradient(90deg, #e6b800, #ffd700);
-    box-shadow: 0 6px 12px rgba(255, 204, 0, 0.5);
+    box-shadow: 0 10px 20px var(--glow-color);
+}
+
+.custom-button:hover::after {
+    opacity: 1;
 }
 
 .custom-button:active {
     transform: scale(0.92);
+}
+
+/* 🌟 تأثير الـ Glow للنصوص */
+.glow-text {
+    text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color);
+}
+
+/* 📱 تصميم متجاوب */
+@media (max-width: 768px) {
+    h1 {
+        font-size: 2rem;
+    }
+
+    .button-box {
+        width: 90%;
+        padding: 15px;
+    }
+
+    .custom-button {
+        padding: 12px 24px;
+        font-size: 1rem;
+    }
 }

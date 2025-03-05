@@ -6,9 +6,254 @@
     <title>A H M E D H A T E M</title>
     <link rel="icon" type="image/x-icon" href="https://e.top4top.io/p_3346wqyvi1.png">
     <link rel="stylesheet" href="styles2.css">
+    <script src="ahmed11.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
 </head>
 <body>
+    <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>تصميم مذهل</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap">
+    <style>
+        /* 🌟 متغيرات CSS لتسهيل التعديلات */
+        :root {
+            --primary-color: #ffcc00;
+            --secondary-color: #ffdd44;
+            --background-color: #000;
+            --text-color: #fff;
+            --shadow-color: rgba(255, 255, 255, 0.3);
+            --gradient-background: linear-gradient(135deg, #444, #111);
+            --gradient-button: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
+            --glow-color: rgba(255, 204, 0, 0.6);
+            --transition-speed: 0.3s;
+        }
+
+        /* 🌌 تنسيق عام للصفحة */
+        body {
+            font-family: 'Cairo', sans-serif;
+            background-color: var(--background-color);
+            text-align: center;
+            margin: 0;
+            padding: 0;
+            color: var(--text-color);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            flex-direction: column;
+            animation: fadeIn 1s ease-in-out;
+            overflow: hidden;
+            position: relative;
+        }
+
+        /* 🔥 تأثير الدخول */
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* 🎆 تنسيق العنوان */
+        h1 {
+            color: var(--text-color);
+            font-size: clamp(2rem, 8vw, 3rem); /* حجم متجاوب */
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            font-weight: bold;
+            text-shadow: 0 4px 8px var(--shadow-color);
+            animation: slideIn 1s cubic-bezier(0.25, 1, 0.5, 1);
+        }
+
+        /* 🚀 تأثير دخول العنوان */
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateY(-30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        /* ✨ تأثير الخلفية المتحركة */
+        body::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(circle at center, rgba(255,255,255,0.1) 10%, rgba(0,0,0,1) 90%);
+            z-index: -1;
+            animation: backgroundMove 6s infinite alternate ease-in-out;
+        }
+
+        /* 🎭 تحريك الخلفية */
+        @keyframes backgroundMove {
+            from { transform: translateY(0); }
+            to { transform: translateY(-10px); }
+        }
+
+        /* ⭐️ النجوم المتحركة */
+        .stars {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            pointer-events: none;
+        }
+
+        .stars span {
+            position: absolute;
+            width: 3px;
+            height: 3px;
+            background: white;
+            border-radius: 50%;
+            opacity: 0.2;
+            animation: twinkle 3s infinite;
+        }
+
+        /* ✨ تأثير الوميض */
+        @keyframes twinkle {
+            0% { opacity: 0.2; transform: scale(1); }
+            50% { opacity: 1; transform: scale(1.3); }
+            100% { opacity: 0.2; transform: scale(1); }
+        }
+
+        /* 🎯 تنسيق الحاوية الرئيسية */
+        .buttons-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            gap: 20px;
+        }
+
+        /* 📦 تصميم صندوق الزر */
+        .button-box {
+            background: var(--gradient-background);
+            padding: 20px;
+            margin: 10px;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px var(--shadow-color);
+            width: 280px;
+            text-align: center;
+            transition: transform var(--transition-speed), box-shadow var(--transition-speed);
+        }
+
+        .button-box:hover {
+            transform: scale(1.08);
+            box-shadow: 0 12px 24px var(--shadow-color);
+        }
+
+        .button-box p {
+            margin-bottom: 12px;
+            font-size: 1.25rem;
+            color: #eee;
+            font-weight: bold;
+        }
+
+        /* 🎨 تصميم الزر */
+        .custom-button {
+            background: var(--gradient-button);
+            color: black;
+            border: none;
+            padding: 14px 28px;
+            font-size: 1.125rem;
+            cursor: pointer;
+            border-radius: 10px;
+            transition: background var(--transition-speed), transform var(--transition-speed), box-shadow var(--transition-speed);
+            font-weight: bold;
+            text-transform: uppercase;
+            position: relative;
+        }
+
+        .custom-button::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            border-radius: 10px;
+            background: var(--glow-color);
+            opacity: 0;
+            transition: opacity var(--transition-speed);
+            z-index: -1;
+        }
+
+        /* 🖱️ تأثيرات عند التحريك */
+        .custom-button:hover {
+            transform: scale(1.1);
+            background: linear-gradient(90deg, #e6b800, #ffd700);
+            box-shadow: 0 10px 20px var(--glow-color);
+        }
+
+        .custom-button:hover::after {
+            opacity: 1;
+        }
+
+        .custom-button:active {
+            transform: scale(0.92);
+        }
+
+        /* 🌟 تأثير الـ Glow للنصوص */
+        .glow-text {
+            text-shadow: 0 0 10px var(--glow-color), 0 0 20px var(--glow-color), 0 0 30px var(--glow-color);
+        }
+
+        /* 📱 تصميم متجاوب */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            .button-box {
+                width: 90%;
+                padding: 15px;
+            }
+
+            .custom-button {
+                padding: 12px 24px;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <h1 class="glow-text">مرحبًا بالعالم!</h1>
+    <div class="buttons-container">
+        <div class="button-box">
+            <p>زر تفاعلي مذهل</p>
+            <button class="custom-button">اضغط هنا</button>
+        </div>
+    </div>
+
+    <!-- ⭐️ النجوم المتحركة -->
+    <div class="stars">
+        <!-- يتم إضافة النجوم عبر JavaScript -->
+    </div>
+
+    <script>
+        // إنشاء النجوم المتحركة
+        const starsContainer = document.querySelector('.stars');
+        for (let i = 0; i < 100; i++) {
+            const star = document.createElement('span');
+            star.style.top = `${Math.random() * 100}%`;
+            star.style.left = `${Math.random() * 100}%`;
+            star.style.animationDelay = `${Math.random() * 3}s`;
+            starsContainer.appendChild(star);
+        }
+
+        // تفاعل الأزرار
+        const buttons = document.querySelectorAll('.custom-button');
+        buttons.forEach(button => {
+            button.addEventListener('click', () => {
+                button.style.background = 'linear-gradient(90deg, #ff0000, #ff8800)';
+                button.style.boxShadow = '0 0 20px rgba(255, 0, 0, 0.6)';
+            });
+        });
+    </script>
+</body>
+</html>
     <div id="main-content">
         <div class="buttons-container">
             <div class="button-box">

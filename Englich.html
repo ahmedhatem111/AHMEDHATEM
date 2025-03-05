@@ -161,22 +161,6 @@
             object-fit: cover;
         }
 
-        .profile-info {
-            text-align: center;
-        }
-
-        .profile-info h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            animation: fadeIn 1.5s ease-in-out;
-        }
-
-        .profile-info p {
-            font-size: 1.2rem;
-            color: #fff;
-            animation: fadeIn 2s ease-in-out;
-        }
-
         .ripple {
             position: absolute;
             border-radius: 50%;
@@ -331,7 +315,14 @@
             transform: translate(-50%, -50%) scale(0);
             transition: transform 0.3s ease-in-out;
         }
-
+        @media (max-width: 600px) {
+            
+    .social-icons a {
+        width: 55px; /* تصغير الحجم لتقليل التشوه */
+        height: 55px;
+        border-radius: 50%; /* ضمان الشكل الدائري */
+    }
+}
         .social-icons a:hover::before {
             transform: translate(-50%, -50%) scale(1.5);
         }
