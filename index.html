@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="ar">
+<html lang="ar" dir="rtl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,14 +8,6 @@
     <link rel="stylesheet" href="styles2.css">
     <script src="ahmed11.js"></script>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
-</head>
-<body>
-    <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>تصميم مذهل</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700&display=swap">
     <style>
         /* 🌟 متغيرات CSS لتسهيل التعديلات */
@@ -58,7 +50,7 @@
         /* 🎆 تنسيق العنوان */
         h1 {
             color: var(--text-color);
-            font-size: clamp(2rem, 8vw, 3rem); /* حجم متجاوب */
+            font-size: clamp(1.5rem, 6vw, 3rem); /* حجم متجاوب */
             margin-bottom: 20px;
             text-transform: uppercase;
             letter-spacing: 3px;
@@ -125,6 +117,9 @@
             flex-direction: column;
             align-items: center;
             gap: 20px;
+            width: 100%;
+            max-width: 600px; /* حد أقصى للحاوية */
+            padding: 0 20px; /* تجنب الالتصاق بالحواف */
         }
 
         /* 📦 تصميم صندوق الزر */
@@ -134,7 +129,8 @@
             margin: 10px;
             border-radius: 15px;
             box-shadow: 0 8px 16px var(--shadow-color);
-            width: 280px;
+            width: 100%;
+            max-width: 280px; /* حد أقصى لعرض الصندوق */
             text-align: center;
             transition: transform var(--transition-speed), box-shadow var(--transition-speed);
         }
@@ -164,6 +160,7 @@
             font-weight: bold;
             text-transform: uppercase;
             position: relative;
+            width: 100%; /* زر يأخذ العرض الكامل */
         }
 
         .custom-button::after {
@@ -216,16 +213,47 @@
                 font-size: 1rem;
             }
         }
+
+        @media (max-width: 480px) {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .button-box {
+                width: 100%;
+                padding: 10px;
+            }
+
+            .custom-button {
+                padding: 10px 20px;
+                font-size: 0.9rem;
+            }
+        }
     </style>
 </head>
 <body>
     <h1 class="glow-text">Welcome everyone to my page - مرحبا بالجميع في صفحتي</h1>
 
-
     <!-- ⭐️ النجوم المتحركة -->
     <div class="stars">
         <!-- يتم إضافة النجوم عبر JavaScript -->
     </div>
+
+    <div id="main-content">
+        <div class="buttons-container">
+            <div class="button-box">
+                <p>اللغه العربيه</p>
+                <button class="custom-button" onclick="goToLink('Arabic.html')">اضغط هنا</button>
+            </div>
+
+            <div class="button-box">
+                <p>English language</p>
+                <button class="custom-button" onclick="goToLink('Englich.html')">click here</button>
+            </div>
+        </div>
+    </div>
+    <br>
+    <br>
 
     <script>
         // إنشاء النجوم المتحركة
@@ -246,25 +274,7 @@
                 button.style.boxShadow = '0 0 20px rgba(255, 0, 0, 0.6)';
             });
         });
-    </script>
-</body>
-</html>
-    <div id="main-content">
-        <div class="buttons-container">
-            <div class="button-box">
-                <p>اللغه العربيه</p>
-                <button class="custom-button" onclick="goToLink('Arabic.html')">اضغط هنا</button>
-            </div>
 
-            <div class="button-box">
-                <p>English language</p>
-                <button class="custom-button" onclick="goToLink('Englich.html')">click here</button>
-            </div>
-        </div>
-    </div>
-<br>
-<br>
-    <script>
         function goToLink(url) {
             window.location.href = url;
         }
