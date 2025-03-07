@@ -690,10 +690,9 @@ body {
     flex-direction: row; /* جعل العناصر في نفس السطر */
     align-items: center; /* محاذاة العناصر عموديًا */
     justify-content: center; /* توسيط العناصر أفقيًا */
-    gap: -10px; /* تعديل المسافة بين النص والصورة */
+    gap: 10px; /* تعديل المسافة بين النص والصورة */
     text-align: center;
     margin-top: 20px;
-    flex-wrap: wrap; /* يسمح بتغيير الاتجاه على الشاشات الصغيرة */
     width: 100%; /* جعل العنصر يمتد بعرض الحاوية */
 }
 
@@ -701,16 +700,24 @@ body {
 .profile-info h1 {
     display: flex;
     align-items: center; /* محاذاة النص والصورة في نفس المستوى */
-    gap: -5px; /* تعديل المسافة بين النص والصورة */
+    gap: 5px; /* تعديل المسافة بين النص والصورة */
     margin: 0 auto; /* توسيط العنصر بالكامل */
     padding: 0;
     white-space: nowrap; /* منع انقسام النص في سطرين */
     text-align: center; /* توسيط النص */
-    .profile-info h1 {
-    margin-left: -10px; /* تحريك النص 50px إلى اليمين */
-
 }
 
+/* تعديلات للشاشات الصغيرة */
+@media (max-width: 768px) {
+    .profile-info {
+        flex-direction: column; /* تغيير الاتجاه إلى عمودي على الشاشات الصغيرة */
+        gap: 5px; /* تعديل المسافة بين العناصر */
+    }
+
+    .profile-info h1 {
+        white-space: normal; /* السماح بانقسام النص في سطرين على الشاشات الصغيرة */
+    }
+}
 /* تنسيق الصورة */
 .name-image {
     width: 60px;
