@@ -265,7 +265,7 @@ body {
 
 .about-image img {
     width: 100%;
-    height: 100%;
+    height: auto;
     display: block;
     border-radius: var(--border-radius);
     transition: transform 0.4s ease;
@@ -278,7 +278,7 @@ body {
 }
 
 .about-text {
-    text-align: left;
+    text-align: right;
 }
 
 .about-text h2 {
@@ -685,44 +685,35 @@ body {
     width: 100vw;
     overflow-x: hidden;
 }
+body {
+    margin: 0;
+    padding: 0;
+    width: 100vw;
+    overflow-x: hidden;
+}
+/* جعل النص والصورة في سطر واحد وتوسيطهما */
 .profile-info {
     display: flex;
-    flex-direction: row; /* جعل العناصر في نفس السطر */
-    align-items: center; /* محاذاة العناصر عموديًا */
-    justify-content: center; /* توسيط العناصر أفقيًا */
-    gap: 10px; /* تعديل المسافة بين النص والصورة */
+    flex-direction: column;
+    align-items: center; /* توسيط العناصر أفقيًا */
     text-align: center;
-    margin-top: 20px;
-    width: 100%; /* جعل العنصر يمتد بعرض الحاوية */
+    margin-top: 20px; /* تعديل المسافة من الأعلى */
+    margin-left: -20px;
 }
 
 /* جعل النص والصورة في نفس السطر */
 .profile-info h1 {
     display: flex;
     align-items: center; /* محاذاة النص والصورة في نفس المستوى */
-    gap: 5px; /* تعديل المسافة بين النص والصورة */
-    margin: 0 auto; /* توسيط العنصر بالكامل */
+    justify-content: center; /* توسيط العنصر أفقيًا */
+    gap: -200px; /* مسافة بين الاسم والصورة */
+    margin: 0; /* إزالة المسافات الزائدة */
     padding: 0;
-    white-space: nowrap; /* منع انقسام النص في سطرين */
-    text-align: center; /* توسيط النص */
 }
 
-/* تعديلات للشاشات الصغيرة */
-@media (max-width: 768px) {
-    .profile-info {
-        flex-direction: column; /* تغيير الاتجاه إلى عمودي على الشاشات الصغيرة */
-        gap: 5px; /* تعديل المسافة بين العناصر */
-    }
-
-    .profile-info h1 {
-        white-space: normal; /* السماح بانقسام النص في سطرين على الشاشات الصغيرة */
-    }
-}
 /* تنسيق الصورة */
 .name-image {
-    width: 60px;
-    height: 60px;
-    object-fit: contain;
+    width: 60px; /* عرض الصورة */
+    height: 60px; /* ارتفاع الصورة */
+    object-fit: contain; /* منع التشويه */
 }
-
-
